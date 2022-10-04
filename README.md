@@ -15,15 +15,14 @@ run on version `18.10.0`.
 
 ## Running
 
-**Clone the repo**: Run `git clone https://github.com/acmucsd/membership-portal-ui.git` in a
+**Clone the repo**: Run `git clone https://github.com/acmucsd/membership-portal-ui-rewrite.git` in a
 terminal.
 
 **Install packages**: Run `yarn` or `yarn install` to install the node modules.
 
-**Run the portal**: Run `yarn start` to run the portal with the development environment variables.
-The page will be available at `localhost:8080`.
+**Run the portal**: Run `yarn dev` to run the portal in the development environment on `localhost:3000`. Alternatively, run `yarn prod` to run your local changes with the live production API.
 
-Currently the portal is deployed as-is using `yarn build` on Netlify.
+Currently, the portal is deployed as-is using `yarn build` on Vercel.
 
 ## Issues
 
