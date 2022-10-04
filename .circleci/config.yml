@@ -1,0 +1,36 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+# TODO - Install CircleCI on this repo
+version: 2
+jobs:
+  lint:
+    docker:
+      - image: circleci/node:18.10.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{checksum "package.json"}}
+      - run:
+          command: yarn install
+      - save_cache:
+          key: package-cache-{{checksum "package.json"}}
+          paths:
+            - node_modules
+      - run:
+          command: yarn run lint
+
+workflows:
+  version: 1
+  weekly_rebase:
+    jobs:
+      - lint:
+          filters:
+            tags:
+              only: /^(v\d*\.\d*\.\d*)(?:-(\w*\d*))?/
+            branches:
+              ignore: /.*/
+
+  test_and_deploy:
+    jobs:
+      - lint

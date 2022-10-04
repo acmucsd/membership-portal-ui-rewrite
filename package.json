@@ -6,15 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint --fix \"src/**/*.+(js|jsx|ts|tsx)\"",
+    "prettier": "prettier --write ./src"
   },
   "dependencies": {
     "next": "12.3.1",
+    "next-seo": "^5.5.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.55.0",
+    "typescript": "^4.8.4"
   },
   "devDependencies": {
+    "@types/node": "18.8.1",
+    "@types/react": "18.0.21",
     "eslint": "8.24.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-next": "12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.13.0",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-order": "^5.0.0"
   }
 }

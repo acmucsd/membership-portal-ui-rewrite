@@ -1,34 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ACM at UCSD: Membership Portal UI
 
-## Getting Started
+This repository is a rewrite of the frontend code for the ACM at UCSD Student Membership Portal. The
+live portal is viewable at: [https://members.acmucsd.com](https://members.acmucsd.com).
 
-First, run the development server:
+See [https://github.com/acmucsd/membership-portal](https://github.com/acmucsd/membership-portal) for
+the portal backend.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Install Node.js and npm**: [https://nodejs.org/en/](https://nodejs.org/en/). Builds are currently
+run on version `18.10.0`.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+**Install yarn**: `npm install -g yarn`. Builds are currently run on `1.22.19`.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Running
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**Clone the repo**: Run `git clone https://github.com/acmucsd/membership-portal-ui.git` in a
+terminal.
 
-## Learn More
+**Install packages**: Run `yarn` or `yarn install` to install the node modules.
 
-To learn more about Next.js, take a look at the following resources:
+**Run the portal**: Run `yarn start` to run the portal with the development environment variables.
+The page will be available at `localhost:8080`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Currently the portal is deployed as-is using `yarn build` on Netlify.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Issues
 
-## Deploy on Vercel
+- Add on Github, including a title, description, screenshots if applicable
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Label the applicable issue type.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- If you’d like to work on that specific issue, assign yourself.
+
+- If not, it will get assigned during development meetings.
+
+## PRs
+
+- Every PR should have a corresponding issue it’s tied to. You can link by using the phrase
+  “Resolves #XX.” in the PR description, or in the GitHub sidebar. Assign yourself to the PR.
+
+- Tag the PR as “PR: Needs Review” and request a review from the portal PM.
+
+- If the PR is approved, go ahead and merge the PR into the repo.
+
+- If the PR isn’t approved, check the comments for feedback / suggested changes. When you merge, the
+  branch will be deleted automatically.
+
+## Coding
+
+- When working on the portal, start by creating a new branch based on master. Add all commits to
+  this branch, and then you can create a PR from there.
+
+- There should be one feature/bugfix per branch.
+
+- If you’re working on the portal in parallel with someone else and end up with PR conflicts / merge
+  issues, contact the portal PM via the Discord server.
+
+- If you are working on an overarching feature/refactor, make a separate branch from master and try
+  your best to rebase to master whenever applicable.
