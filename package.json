@@ -7,9 +7,9 @@
     "prod": "next lint && next build && next start",
     "build": "next build",
     "start": "next start",
+    "prettier": "prettier --write ./src",
     "lint": "next lint",
-    "lint:fix": "eslint --fix \"src/**/*.+(js|jsx|ts|tsx)\"",
-    "prettier": "prettier --write ./src"
+    "lint:fix": "yarn prettier && eslint --fix \"src/**/*.+(js|jsx|ts|tsx)\""
   },
   "dependencies": {
     "next": "12.3.1",
