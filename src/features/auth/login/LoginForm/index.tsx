@@ -1,3 +1,4 @@
+import config from '@/lib/config';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -23,6 +24,7 @@ const LoginFormInput = ({ icon, ...inputProps }: LoginFormProps) => {
   );
 };
 
+// TODO: Form input validation
 const LoginForm = () => {
   return (
     <div className={style.content}>
@@ -32,7 +34,7 @@ const LoginForm = () => {
           <br />
           to ACM!
         </h2>
-        <form method="post" className={style.form}>
+        <form action={`${config.apiBase}/auth/login`} method="post" className={style.form}>
           <LoginFormInput
             icon={<AiOutlineMail />}
             name="email"
