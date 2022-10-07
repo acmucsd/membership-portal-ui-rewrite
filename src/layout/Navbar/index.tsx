@@ -7,7 +7,7 @@ import style from './style.module.scss';
 const Navbar = () => {
   return (
     <div className={style.container}>
-      <nav className={style.navbar}>
+      <div className={style.navbar}>
         <Link href="/" passHref>
           <a href="replace" className={style.navLeft}>
             <Image
@@ -20,7 +20,7 @@ const Navbar = () => {
             <span className={style.title}>Membership Portal</span>
           </a>
         </Link>
-      </nav>
+      </div>
       <div className={style.wainbow} />
     </div>
   );

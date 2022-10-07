@@ -1,7 +1,12 @@
+import LoginForm from '@/features/auth/login/LoginForm';
+import PageLayout from '@/layout/PageLayout';
+
 const LoginPage = () => {
-  <div>
-    <h1>Welcome to ACM!</h1>
-  </div>;
+  return (
+    <PageLayout>
+      <LoginForm />
+    </PageLayout>
+  );
 };
 
 export default LoginPage;

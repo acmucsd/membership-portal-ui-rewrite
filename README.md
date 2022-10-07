@@ -1,12 +1,37 @@
 # ACM at UCSD: Membership Portal UI
 
-This repository is a rewrite of the frontend code for the ACM at UCSD Student Membership Portal. The
-live portal is viewable at: [https://members.acmucsd.com](https://members.acmucsd.com).
+This repository is an open-source rewrite of the frontend code for the ACM at UCSD Student
+Membership Portal. The live portal is viewable at:
+[https://members.acmucsd.com](https://members.acmucsd.com).
 
 See [https://github.com/acmucsd/membership-portal](https://github.com/acmucsd/membership-portal) for
 the portal backend.
 
 ## Setup
+
+### Verify Correct Versioning of Package Managers
+
+- node v.18.10.0
+- yarn v1.22.19
+- npm v8.19.2
+
+### Install VSCode Marketplace Extensions
+
+- Prettier - Code formatter
+- Prettier ESLint
+- ESLint
+- Stylelint
+- stylelint-plus
+
+### Setup Repo
+
+If it's your first time running the repository, run `yarn` to install all `node_modules` packages.
+
+Run `yarn dev` to start a dev environment with the testing API.
+
+Run `yarn prod` to run a production-ready build locally.
+
+<!-- ## Setup
 
 **Install Node.js and npm**: [https://nodejs.org/en/](https://nodejs.org/en/). Builds are currently
 run on version `18.10.0`.
@@ -57,4 +82,4 @@ Currently, the portal is deployed as-is using `yarn build` on Vercel.
   issues, contact the portal PM via the Discord server.
 
 - If you are working on an overarching feature/refactor, make a separate branch from master and try
-  your best to rebase to master whenever applicable.
+  your best to rebase to master whenever applicable. -->
