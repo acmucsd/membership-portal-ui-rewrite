@@ -1,6 +1,9 @@
 import LoginForm from '@/features/auth/components/LoginForm';
+import config from '@/lib/config';
 import { LoginFormData, LoginValidationError } from '@/lib/types';
+import axios from 'axios';
 import { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import style from './style.module.scss';
 
 const defaultFormValues: LoginFormData = {
@@ -15,7 +18,7 @@ const defaultValidationError: LoginValidationError = {
 
 const Login = () => {
   const [formData, setFormData] = useState<LoginFormData>(defaultFormValues);
-  const [formValidation, setFormValidation] =
+  const [validationError, setValidationError] =
     useState<LoginValidationError>(defaultValidationError);
 
   const setEmail = (value: string) => {
@@ -33,16 +36,30 @@ const Login = () => {
   };
 
   const validateForm = () => {
-    const validationError = {
-      email: formData.email === '',
-      password: formData.password === '',
+    const validEmail = formData.email !== '';
+    const validPassword = formData.password !== '';
+
+    const updateValidationError = {
+      email: !validEmail,
+      password: !validPassword,
     };
 
-    setFormValidation(validationError);
+    setValidationError(updateValidationError);
+
+    return validEmail && validPassword;
   };
 
   const submitLoginForm = () => {
-    validateForm();
+    if (!validateForm()) return;
+
+    axios
+      .post(`${config.apiBase}/auth/login`, formData)
+      .then(res => {
+        const { token } = res.data;
+      })
+      .catch(err => {
+        toast.error(err.response.data.error.message);
+      });
   };
 
   return (
@@ -55,7 +72,7 @@ const Login = () => {
         </h2>
         <LoginForm
           formData={formData}
-          formValidation={formValidation}
+          formValidation={validationError}
           setEmail={setEmail}
           setPassword={setPassword}
           submitForm={submitLoginForm}
