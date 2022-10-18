@@ -22,12 +22,12 @@ const PasswordReset = () => {
 
     axios
       .get(`${config.apiBase}/auth/passwordReset/${email}`)
-      .then(res => {
+      .then(() => {
         toast(
           toastWithSubtitle('Success! Check your email shortly', `Email has been sent to ${email}`)
         );
       })
-      .catch(err =>
+      .catch(() =>
         toast(
           toastWithSubtitle(
             'Error sending email!',
