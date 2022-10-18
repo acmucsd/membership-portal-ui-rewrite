@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
+import { toastWithSubtitle } from '@/lib/utils';
 import style from './style.module.scss';
 
 const defaultFormValues: LoginFormData = {
@@ -82,7 +83,9 @@ const Login = () => {
           .then(err => console.error(err));
       })
       .catch(err => {
-        toast.error(err.response.data.error.message);
+        if (err.response.status === 403 || err.response.status === 404)
+          toast(toastWithSubtitle('Unable to login!', err.response.data.error.message));
+        else toast(toastWithSubtitle('Unable to login!', ''));
       });
   };
 

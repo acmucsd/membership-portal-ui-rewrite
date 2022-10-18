@@ -1,22 +1,17 @@
-.forgotPassword {
-  // TODO: Fix
-  color: #555;
-  font-size: 16px;
-  margin-bottom: 25px;
-  margin-top: -5px;
-}
-
-.registerButton {
+.submit {
   cursor: pointer;
+  transition: opacity 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;
   // TODO: Fix
-  background-color: #2e3036;
+  background-color: #62b0ff;
   border: none;
   border-radius: 100px;
+
   // TODO: Fix
   color: #fff;
   font-size: 20px;
   font-weight: 700;
   height: 40px;
+  margin-bottom: 20px;
   width: 300px;
 }

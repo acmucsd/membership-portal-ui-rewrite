@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { AiOutlineMail } from 'react-icons/ai';
 import { VscLock } from 'react-icons/vsc';
 import FormInput from '../FormItem';
+import SubmitButton from '../SubmitButton';
 import style from './style.module.scss';
 
 const LoginForm = ({
@@ -13,7 +14,7 @@ const LoginForm = ({
   submitForm,
 }: LoginFormProps) => {
   return (
-    <div className={style.form}>
+    <>
       <FormInput
         icon={<AiOutlineMail />}
         name="email"
@@ -39,9 +40,7 @@ const LoginForm = ({
           <p className={style.forgotPassword}>Forgot your password?</p>
         </a>
       </Link>
-      <button type="submit" onClick={submitForm} className={style.signIn}>
-        Sign In
-      </button>
+      <SubmitButton text="Sign In" onClick={submitForm} />
       <Link href="/register">
         <a href="replace">
           <button type="button" className={style.registerButton}>
@@ -49,7 +48,7 @@ const LoginForm = ({
           </button>
         </a>
       </Link>
-    </div>
+    </>
   );
 };
 

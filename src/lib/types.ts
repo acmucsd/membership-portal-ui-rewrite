@@ -16,6 +16,21 @@ export enum UserAccountState {
 }
 
 export type Uuid = string;
+export interface LoggedInUser {
+  uuid: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  profilePicture: string | null;
+  accessType: UserAccessType;
+  state: UserAccountState;
+  graduationYear: number;
+  major: string;
+  bio: string | null;
+  points: number;
+  credits: number;
+}
+
 export interface LoginFormData {
   email: string;
   password: string;
@@ -31,20 +46,5 @@ export interface LoginFormProps {
   formValidation: LoginValidationError;
   setEmail: (value: string) => void;
   setPassword: (value: string) => void;
-  submitForm: () => any;
-}
-
-export interface LoggedInUser {
-  uuid: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  profilePicture: string | null;
-  accessType: UserAccessType;
-  state: UserAccountState;
-  graduationYear: number;
-  major: string;
-  bio: string | null;
-  points: number;
-  credits: number;
+  submitForm: () => void;
 }

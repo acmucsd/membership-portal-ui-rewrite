@@ -24,6 +24,7 @@
     "arrow-body-style": "off",
     "react/jsx-props-no-spreading": "off",
     "import/extensions": "off",
+    "no-shadow": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {

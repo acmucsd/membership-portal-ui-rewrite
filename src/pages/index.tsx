@@ -1,8 +1,9 @@
 import PageLayout from '@/layout/PageLayout';
 import { parseCookies } from '@/lib/utils';
 import { GetServerSideProps } from 'next';
+import type { NextPage } from 'next';
 
-const Home = ({ user }: any) => {
+const Home: NextPage = ({ user }: any) => {
   return <PageLayout>Welcome Back, {`${user.firstName} ${user.lastName}`}</PageLayout>;
 };
 
