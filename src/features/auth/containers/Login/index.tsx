@@ -56,6 +56,7 @@ const Login = () => {
   const submitLoginForm = () => {
     if (!validateForm()) return;
 
+    // TODO: Move to API section
     axios
       .post(`${config.apiBase}/auth/login`, formData)
       .then(res => {

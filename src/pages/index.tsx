@@ -6,15 +6,8 @@ const Home = ({ user }: any) => {
   return <PageLayout>Welcome Back, {`${user.firstName} ${user.lastName}`}</PageLayout>;
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const data = parseCookies(req);
-
-  if (res) {
-    if (Object.keys(data).length === 0 && data.constructor === Object) {
-      res.writeHead(301, { Location: '/login' });
-      res.end();
-    }
-  }
 
   const userObj = data.user;
 
