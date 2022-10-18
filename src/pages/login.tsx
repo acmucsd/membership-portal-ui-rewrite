@@ -1,10 +1,10 @@
-import LoginForm from '@/features/auth/login/LoginForm';
+import Login from '@/features/auth/containers/Login';
 import PageLayout from '@/layout/PageLayout';
 
 const LoginPage = () => {
   return (
     <PageLayout>
-      <LoginForm />
+      <Login />
     </PageLayout>
   );
 };

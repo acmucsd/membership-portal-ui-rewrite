@@ -8,9 +8,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Navbar />
-      <main>
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
     </>
   );
 }
