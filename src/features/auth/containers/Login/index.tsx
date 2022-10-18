@@ -3,7 +3,9 @@ import config from '@/lib/config';
 import { LoginFormData, LoginValidationError } from '@/lib/types';
 import axios from 'axios';
 import { useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { useCookies } from 'react-cookie';
+import { useRouter } from 'next/router';
 import style from './style.module.scss';
 
 const defaultFormValues: LoginFormData = {
@@ -20,6 +22,8 @@ const Login = () => {
   const [formData, setFormData] = useState<LoginFormData>(defaultFormValues);
   const [validationError, setValidationError] =
     useState<LoginValidationError>(defaultValidationError);
+  const [_, setCookie] = useCookies(['user']);
+  const router = useRouter();
 
   const setEmail = (value: string) => {
     setFormData(data => ({
@@ -56,6 +60,25 @@ const Login = () => {
       .post(`${config.apiBase}/auth/login`, formData)
       .then(res => {
         const { token } = res.data;
+
+        axios
+          .get(`${config.apiBase}/user`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then(response => {
+            const { user } = response.data;
+
+            setCookie('user', JSON.stringify({ ...user, auth: token }), {
+              path: '/',
+              maxAge: 60 * 60 * 24 * 7, // One week
+              sameSite: true,
+            });
+
+            router.push('/');
+          })
+          .then(err => console.error(err));
       })
       .catch(err => {
         toast.error(err.response.data.error.message);

@@ -1,2 +1,6 @@
-// eslint-disable-next-line import/prefer-default-export
+import cookie from 'cookie';
+
 export const noop = () => {};
+
+export const parseCookies = (req: any) =>
+  cookie.parse(req ? req.headers.cookie || '' : document.cookie);
