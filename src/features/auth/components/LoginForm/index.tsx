@@ -1,10 +1,26 @@
-import { LoginFormProps } from '@/lib/types';
 import Link from 'next/link';
 import { AiOutlineMail } from 'react-icons/ai';
 import { VscLock } from 'react-icons/vsc';
 import FormInput from '../FormItem';
 import SubmitButton from '../SubmitButton';
 import style from './style.module.scss';
+
+export interface LoginFormData {
+  email: string;
+  password: string;
+}
+
+export interface LoginValidationError {
+  email: boolean;
+  password: boolean;
+}
+interface LoginFormProps {
+  formData: LoginFormData;
+  formValidation: LoginValidationError;
+  setEmail: (value: string) => void;
+  setPassword: (value: string) => void;
+  submitForm: () => void;
+}
 
 const LoginForm = ({
   formData,

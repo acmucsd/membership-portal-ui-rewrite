@@ -1,6 +1,8 @@
-import LoginForm from '@/features/auth/components/LoginForm';
+import LoginForm, {
+  LoginFormData,
+  LoginValidationError,
+} from '@/features/auth/components/LoginForm';
 import config from '@/lib/config';
-import { LoginFormData, LoginValidationError } from '@/lib/types';
 import axios from 'axios';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
