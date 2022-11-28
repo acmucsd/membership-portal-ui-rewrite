@@ -1,6 +1,4 @@
 import type { HTMLInputTypeAttribute, ReactNode } from 'react';
-import TextField from '@mui/material/TextField';
-import { VscRunErrors } from 'react-icons/vsc';
 import style from './style.module.scss';
 
 interface FormInputProps {

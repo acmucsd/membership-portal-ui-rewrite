@@ -47,6 +47,7 @@ const FormSelect = ({
                       {...params.inputProps}
                       className={style.inputField}
                       onClick={() => {}}
+                      placeholder={placeholder}
                     />
                     <IconButton
                       onClick={() => {
@@ -58,9 +59,8 @@ const FormSelect = ({
                     </IconButton>
                   </div>
                 )}
-                options={[placeholder, ...options]}
+                options={options}
                 getOptionLabel={option => option.toString()}
-                getOptionDisabled={option => option === placeholder}
                 size="small"
                 onOpen={() => {
                   setOpen(true);
@@ -73,7 +73,6 @@ const FormSelect = ({
                   onChange(data);
                   return data;
                 }}
-                defaultValue={placeholder}
               />
             </StyledEngineProvider>
           )}

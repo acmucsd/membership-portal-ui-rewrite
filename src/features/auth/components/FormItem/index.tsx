@@ -1,5 +1,4 @@
 import type { HTMLInputTypeAttribute, ReactNode } from 'react';
-import TextField from '@mui/material/TextField';
 import style from './style.module.scss';
 
 interface FormInputProps {
@@ -7,7 +6,8 @@ interface FormInputProps {
   name: string;
   type: HTMLInputTypeAttribute;
   placeholder: string;
-  validationError: string;
+  validationMessage: string;
+  validationError: boolean;
   value: string;
   setValue: (value: string) => void;
 }
@@ -17,7 +17,8 @@ const FormInput = ({
   name,
   type,
   placeholder,
-  validationError = '',
+  validationMessage = 'Required',
+  validationError = false,
   value,
   setValue,
 }: FormInputProps) => {
@@ -35,7 +36,7 @@ const FormInput = ({
           placeholder={placeholder}
         />
       </div>
-      <p className={style.formError}>{validationError}</p>
+      <p className={style.formError}>{validationError ? validationMessage : ''}</p>
     </div>
   );
 };
