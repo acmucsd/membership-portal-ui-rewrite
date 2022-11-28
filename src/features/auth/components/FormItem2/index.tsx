@@ -1,5 +1,6 @@
 import type { HTMLInputTypeAttribute, ReactNode } from 'react';
 import TextField from '@mui/material/TextField';
+import { VscRunErrors } from 'react-icons/vsc';
 import style from './style.module.scss';
 
 interface FormInputProps {
@@ -7,20 +8,11 @@ interface FormInputProps {
   name: string;
   type: HTMLInputTypeAttribute;
   placeholder: string;
-  validationError: string;
-  value: string;
-  setValue: (value: string) => void;
+  formRegister: Object;
+  errors: any;
 }
 
-const FormInput = ({
-  icon,
-  name,
-  type,
-  placeholder,
-  validationError = '',
-  value,
-  setValue,
-}: FormInputProps) => {
+const FormInput = ({ icon, name, type, placeholder, formRegister, errors }: FormInputProps) => {
   return (
     <div className={style.formItem}>
       <div className={style.formInput}>
@@ -28,14 +20,13 @@ const FormInput = ({
         <input
           className={style.inputField}
           required
-          value={value}
-          onChange={e => setValue(e.target.value)}
           name={name}
           type={type}
           placeholder={placeholder}
+          {...formRegister}
         />
       </div>
-      <p className={style.formError}>{validationError}</p>
+      <p className={style.formError}>{errors[name] && errors[name].message}</p>
     </div>
   );
 };

@@ -48,3 +48,31 @@ export interface LoginFormProps {
   setPassword: (value: string) => void;
   submitForm: () => void;
 }
+
+export interface RegisterFormData {
+  first: string;
+  last: string;
+  email: string;
+  password: string;
+  confirm: string;
+  major: string;
+  year: string;
+}
+
+export interface RegisterValidationError {
+  first: string;
+  last: string;
+  email: string;
+  password: string;
+  confirm: string;
+  major: string;
+  year: string;
+}
+
+export interface RegisterFormProps {
+  formData: RegisterFormData;
+  formValidation: RegisterValidationError;
+  setField: (field: string) => (value: string | number) => void;
+  submitForm: () => void;
+  register: Function;
+}

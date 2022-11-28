@@ -1,0 +1,66 @@
+@use '../../../../styles/vars.scss' as v;
+
+.formItem {
+  margin-bottom: 0px;
+
+  .formInput {
+    // TODO: Fix
+    border-bottom: 1px solid #444;
+    display: flex;
+    height: 27px;
+    width: 300px;
+
+    .iconContainer {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      justify-content: center;
+      width: 40px;
+    }
+
+    .autocomplete {
+      width: 100%;
+
+      .inputField {
+        border: none;
+        flex-grow: 1;
+        font-size: 16px;
+        font-family: 'DM Sans', sans-serif;
+        line-height: 1.5;
+        text-overflow: ellipsis;
+      }
+  
+      .inputDiv {
+        display: flex;
+      }
+  
+      button {
+        padding: 0;
+      }
+      
+      svg {
+        transition: transform 0.25s;
+      }
+
+      .openIcon {
+        transform: rotate(180deg);
+      }
+  
+      .disabled {
+        background-color: #00ff00;
+      }
+    }
+
+    :global(.Mui-focused) {
+      border-radius: 5px;
+      outline: 2px solid v.$light-blue-100;
+    }
+  }
+
+  .formError {
+    // TODO: Fix
+    color: #ef626c;
+    height: 20px;
+    font-size: 14px;
+  }
+}

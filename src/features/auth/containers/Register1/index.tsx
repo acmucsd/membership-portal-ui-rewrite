@@ -1,6 +1,6 @@
 import axios from 'axios';
 import config from '@/lib/config';
-import RegisterForm2 from '@/features/auth/components/RegisterForm2';
+import RegisterForm from '@/features/auth/components/RegisterForm';
 import { RegisterFormData, RegisterValidationError } from '@/lib/types';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -75,18 +75,18 @@ const Register = () => {
   // };
 
   const submitLoginForm = async () => {
-    // try {
-    //   await RegisterSchema.validate(formData, { abortEarly: false });
-    // } catch (errs) {
-    //   const newValidationError = { ...defaultValidationError };
-    //   console.log(errs);
-    //   errs.inner.forEach((err) => {
-    //     console.log(err);
-    //     newValidationError[err.path] = err.message;
-    //   });
-    //   setValidationError(newValidationError);
-    //   return;
-    // }
+    try {
+      await RegisterSchema.validate(formData, { abortEarly: false });
+    } catch (errs) {
+      const newValidationError = { ...defaultValidationError };
+      console.log(errs);
+      errs.inner.forEach(err => {
+        console.log(err);
+        newValidationError[err.path] = err.message;
+      });
+      setValidationError(newValidationError);
+      return;
+    }
     // console.log(errors);
     // if (!validateForm()) return;
 
@@ -152,7 +152,7 @@ const Register = () => {
           <br />
           to ACM!
         </h2>
-        <RegisterForm2
+        <RegisterForm
           formData={formData}
           formValidation={validationError}
           setField={setField}
