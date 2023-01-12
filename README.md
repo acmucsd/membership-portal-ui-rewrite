@@ -15,6 +15,15 @@ the portal backend.
 - yarn v1.22.19
 - npm v8.19.2
 
+You're recommended to use [`nvm`](https://github.com/nvm-sh/nvm) to be able to manage multiple node versions.
+
+Likewise, you can use [`corepack`](https://github.com/nodejs/corepack) to ensure the right package manager and version is being used. If your node version is configured properly, `corepack` should already be installed and available.
+
+<!-- USING COREPACK IN CI:
+run `corepack prepare -o` whenever changing the package manager version to update `.corepack.tgz`.
+then, in CI, we can run `corepack hydrate .corepack.tgz` to load the appropriate package manager version.
+-->
+
 ### Install VSCode Marketplace Extensions
 
 When opening the project in VSCode, you should get a prompt to install the recommended extensions.
@@ -29,7 +38,7 @@ Alternatively, manually install them, listed below:
 
 ### Setup Repo
 
-If it's your first time running the repository, run `yarn` to install all `node_modules` packages.
+If it's your first time running the repository, run `yarn` to install all `node_modules` packages. If your global yarn version isn't compatible, try prefixing instances of `yarn` with `corepack`, e.g. `corepack yarn` (this applies to later commands as well).
 
 Run `yarn dev` to start a dev environment with the testing API.
 

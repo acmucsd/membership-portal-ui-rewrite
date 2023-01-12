@@ -2,8 +2,14 @@
   "name": "portal-ui-v2",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "yarn@1.22.19",
+  "engines": {
+    "node": "18.10.0",
+    "yarn": "1.22.19",
+    "npm": "use-yarn-not-npm",
+    "pnpm": "use-yarn-not-pnpm"
+  },
   "scripts": {
-    "preinstall": "npx only-allow yarn",
     "dev": "next lint && next dev",
     "prod": "next lint && next build && next start",
     "build": "next build",
