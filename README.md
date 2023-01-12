@@ -17,11 +17,15 @@ the portal backend.
 
 ### Install VSCode Marketplace Extensions
 
-- Prettier - Code formatter
-- Prettier ESLint
-- ESLint
-- Stylelint
-- stylelint-plus
+When opening the project in VSCode, you should get a prompt to install the recommended extensions.
+
+Alternatively, manually install them, listed below:
+
+- Prettier - Code formatter (`esbenp.prettier-vscode`)
+- Prettier ESLint (`rvest.vs-code-prettier-eslint`)
+- ESLint (`dbaeumer.vscode-eslint`)
+- Stylelint (`stylelint.vscode-stylelint`)
+- stylelint-plus (`hex-ci.stylelint-plus`)
 
 ### Setup Repo
 
